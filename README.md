@@ -1,6 +1,15 @@
 # Learning Playwright Fundamentals 2x
 
-A hands-on starter project for learning [Playwright](https://playwright.dev/) end-to-end testing with TypeScript. Part of **The Testing Academy** Playwright Fundamentals course.
+A hands-on starter project for learning [Playwright](https://playwright.dev/) end-to-end testing with TypeScript. This repository contains course-based examples for **The Testing Academy** Playwright Fundamentals journey, covering basics, locators, assertions, browser-context-page concepts, web tables, frames, keyboard interactions, alerts, SVG, shadow DOM, file upload/download, and reporting.
+
+## What You’ll Find Here
+
+- Core Playwright test anatomy and annotations
+- Browser → Context → Page (BCP) examples
+- Locator strategies and common commands
+- Advanced UI interaction examples
+- Project-style specs and reusable test patterns
+- Allure reporting and HTML reporting setup
 
 ## Tech Stack
 
