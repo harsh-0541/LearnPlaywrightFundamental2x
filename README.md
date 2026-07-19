@@ -34,14 +34,17 @@ npx playwright install
 ## Running Tests
 
 ```bash
-# Run all tests (headless)
+# Run all tests
 npx playwright test
 
-# Run in headed mode (watch the browser)
-npx playwright test --headed
-
-# Run a single spec
+# Run a single spec in root tests/
 npx playwright test tests/example.spec.ts
+
+# Run a single spec inside LearningPlaywrightFundamentals2x/tests/
+npx playwright test "LearningPlaywrightFundamentals2x/tests/07_WebTables/Task2_19thjuly.spec.ts"
+
+# Run headed mode (watch the browser)
+npx playwright test --headed
 
 # Run in UI mode (interactive)
 npx playwright test --ui
@@ -62,13 +65,15 @@ npx playwright show-report
 
 ```
 .
+├── LearningPlaywrightFundamentals2x/
+│   └── tests/                        # Extended course exercises
 ├── tests/
 │   ├── 01_Basics/                    # Test anatomy, annotations (skip/only/fail/slow)
 │   ├── 02_First_tests/               # Browser → Context → Page (BCP) hierarchy
 │   ├── 03_Locators_Commands/ … 23_Advance_Framework/   # Curriculum modules (scaffolded, WIP)
 │   ├── Template.spec.ts              # Empty spec scaffold, copy for new tests
 │   └── example.spec.ts               # Sample: title check + "Get started" navigation
-├── playwright.config.ts    # Playwright configuration
+├── playwright.config.ts              # Single consolidated Playwright configuration
 ├── package.json
 └── .gitignore
 ```
@@ -186,13 +191,13 @@ test("TC#1 - Verify VWO login error with lazy, strict, and auto-wait", async ({ 
 
 Defined in `playwright.config.ts`:
 
-- `testDir: './tests'` — where specs live
-- `testMatch: ['tests/**/*.spec.ts']` — recurses into every numbered module folder
+- `testDir: '.'` — search from repository root
+- `testMatch: ['**/*.spec.ts']` — includes both root and nested spec trees
 - `fullyParallel: true` — run test files in parallel
 - `reporter: 'html'` — generate an HTML report
 - `trace: 'on'`, `screenshot: 'on'`, `video: 'on'` — full debug artifacts for every run (heavier, dial back for CI)
-- `headless: false`, `viewport: 1920x1080` — watch tests run during course recording
-- Projects: Firefox active; Chromium and WebKit currently commented out
+- `headless: false`, `viewport: 1920x1080` — headed by default in config
+- Projects: Chromium active
 - CI-aware retries and workers (`process.env.CI`)
 
 ## Learn More
